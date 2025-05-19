@@ -1,6 +1,6 @@
-import 'package:demo_project/view/widget/card.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
+import 'package:recognify/view/widget/card.dart';
 
 void main() {
   runApp(const MainApp());

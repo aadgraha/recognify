@@ -1,8 +1,8 @@
-import 'package:demo_project/util/color.dart';
-import 'package:demo_project/view/widget/text_field.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:recognify/util/color.dart';
+import 'package:recognify/view/widget/text_field.dart';
 
 class DeveloperCard extends StatelessWidget {
   const DeveloperCard({super.key});
