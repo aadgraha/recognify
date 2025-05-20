@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:recognify/util/color.dart';
-import 'package:recognify/view/widget/text_field.dart';
+import 'package:recognify/view/widget/contact_me.dart' show ContactMe;
 
 class DeveloperCard extends StatelessWidget {
   const DeveloperCard({super.key});
@@ -107,40 +107,7 @@ class DeveloperCard extends StatelessWidget {
               showDialog(
                 context: context,
                 builder: (context) {
-                  return AlertDialog(
-                    title: Text(
-                      'Contact Me',
-                      style: TextStyle(color: CustomColor.onDialog()),
-                    ),
-
-                    backgroundColor: Color(0xFF333333),
-                    content: Column(
-                      mainAxisSize: MainAxisSize.min,
-                      children: [
-                        CustomTextField(),
-                        SizedBox(height: 10),
-                        TextField(
-                          minLines: 5,
-                          maxLines: null,
-                          decoration: InputDecoration(
-                            hintText: "Enter message",
-                          ),
-                        ),
-                      ],
-                    ),
-                    actions: [
-                      TextButton(
-                        onPressed: () => Navigator.of(context).pop(),
-                        child: Text('Cancel'),
-                      ),
-                      TextButton(
-                        onPressed: () {
-                          // Handle send logic
-                        },
-                        child: Text('Send'),
-                      ),
-                    ],
-                  );
+                  return ContactMe();
                 },
               );
             },
