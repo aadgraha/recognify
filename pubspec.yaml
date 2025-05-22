@@ -11,6 +11,9 @@ dependencies:
     sdk: flutter
   gap: ^3.0.1
   google_fonts: ^6.2.1
+  photo_view: ^0.15.0
+  url_launcher: ^6.3.1
+  url_launcher_web: ^2.4.1
 
 dev_dependencies:
   flutter_test:

@@ -4,7 +4,8 @@ import 'package:recognify/util/color.dart';
 import 'package:recognify/view/widget/text_field.dart';
 
 class ContactMe extends StatefulWidget {
-  const ContactMe({super.key});
+  const ContactMe({super.key, required this.isDialog});
+  final bool isDialog;
 
   @override
   State<ContactMe> createState() => _ContactMeState();
@@ -25,9 +26,9 @@ class _ContactMeState extends State<ContactMe> {
 
       backgroundColor: Color(0xFF333333),
       content: SizedBox(
-        width: 320,
+        width: 400,
         child: Column(
-          mainAxisSize: MainAxisSize.min,
+          mainAxisSize: MainAxisSize.max,
           children: [
             CustomTextField(controller: subjectController, label: 'Subject'),
             Gap(12),
@@ -65,12 +66,13 @@ class _ContactMeState extends State<ContactMe> {
         ),
       ),
       actions: [
-        TextButton(
-          onPressed: () {
-            Navigator.pop(context);
-          },
-          child: Text('Cancel', style: TextStyle(color: CustomColor.label())),
-        ),
+        if (widget.isDialog)
+          TextButton(
+            onPressed: () {
+              Navigator.pop(context);
+            },
+            child: Text('Cancel', style: TextStyle(color: CustomColor.label())),
+          ),
         OutlinedButton(
           onPressed: () {},
           child: Text('Send', style: TextStyle(color: CustomColor.onDialog())),

@@ -5,7 +5,8 @@ import 'package:recognify/util/color.dart';
 import 'package:recognify/view/widget/contact_me.dart' show ContactMe;
 
 class DeveloperCard extends StatelessWidget {
-  const DeveloperCard({super.key});
+  const DeveloperCard({super.key, required this.onMore});
+  final void Function() onMore;
 
   @override
   Widget build(BuildContext context) {
@@ -99,7 +100,6 @@ class DeveloperCard extends StatelessWidget {
               ],
             ),
           ),
-          CustomTextButton(label: 'MENU', onPressed: () {}),
           CustomTextButton(
             alignment: Alignment.topRight,
             label: 'CONTACT ME',
@@ -107,7 +107,7 @@ class DeveloperCard extends StatelessWidget {
               showDialog(
                 context: context,
                 builder: (context) {
-                  return ContactMe();
+                  return ContactMe(isDialog: true);
                 },
               );
             },
@@ -115,7 +115,7 @@ class DeveloperCard extends StatelessWidget {
           CustomTextButton(
             alignment: Alignment.bottomRight,
             label: 'SCROLL FOR MORE',
-            onPressed: () {},
+            onPressed: onMore,
           ),
         ],
       ),
