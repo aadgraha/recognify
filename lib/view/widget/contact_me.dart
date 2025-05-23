@@ -20,14 +20,22 @@ class _ContactMeState extends State<ContactMe> {
   Widget build(BuildContext context) {
     return AlertDialog(
       scrollable: true,
-      title: Text(
-        'Contact Me',
-        style: TextStyle(color: CustomColor.onDialog()),
+      insetPadding: widget.isDialog ? null : EdgeInsets.zero,
+      clipBehavior: Clip.antiAliasWithSaveLayer,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.all(Radius.circular(8)),
       ),
+      title:
+          widget.isDialog
+              ? Text(
+                'Contact Me',
+                style: TextStyle(color: CustomColor.onDialog()),
+              )
+              : null,
 
       backgroundColor: Color(0xFF333333),
       content: SizedBox(
-        width: 400,
+        width: widget.isDialog ? null : MediaQuery.of(context).size.width,
         child: Column(
           mainAxisSize: MainAxisSize.max,
           children: [

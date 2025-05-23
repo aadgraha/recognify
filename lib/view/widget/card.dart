@@ -3,6 +3,7 @@ import 'package:gap/gap.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:recognify/util/color.dart';
 import 'package:recognify/view/widget/contact_me.dart' show ContactMe;
+import 'package:sizer/sizer.dart';
 
 class DeveloperCard extends StatelessWidget {
   const DeveloperCard({super.key, required this.onMore});
@@ -11,7 +12,7 @@ class DeveloperCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 520,
+      height: Device.screenType == ScreenType.desktop ? 520 : 320,
       width: double.maxFinite,
       child: Stack(
         fit: StackFit.expand,
@@ -19,74 +20,40 @@ class DeveloperCard extends StatelessWidget {
           Container(
             decoration: BoxDecoration(
               color: const Color(0xFF212121),
-              borderRadius: const BorderRadius.all(Radius.circular(25)),
+              borderRadius: const BorderRadius.all(Radius.circular(16)),
             ),
-            height: 520,
+            height: Device.screenType == ScreenType.desktop ? 520 : 320,
             width: double.maxFinite,
             child: Row(
               children: [
-                const Expanded(child: DeveloperPicture()),
                 Expanded(
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.end,
                     children: [
                       const Spacer(),
                       Text(
-                        'SOFTWARE',
+                        'SOFTWARE\nDEVELOPER',
+                        textAlign: TextAlign.end,
                         style: GoogleFonts.sen(
                           textStyle: TextStyle(
                             letterSpacing: .25,
                             height: 0.9,
                             fontWeight: FontWeight.w200,
                             color: CustomColor.onDialog(),
-                            fontSize: 70,
+                            fontSize: 25.sp,
                           ),
                         ),
                       ),
+
+                      const Gap(40),
                       Text(
-                        'DEVELOPER',
+                        'DISCOVER THE POWER OF INNOVATION\nAND EMBRACE GROWTH WITH BOLD\nSTRATEGIST',
+                        textAlign: TextAlign.end,
                         style: GoogleFonts.sen(
                           textStyle: TextStyle(
                             fontWeight: FontWeight.w200,
                             color: CustomColor.onDialog(),
-                            fontSize: 70,
-                            height: 0.9,
-                            letterSpacing: .25,
-                          ),
-                        ),
-                      ),
-                      const Gap(20),
-                      Text(
-                        'DISCOVER THE POWER OF INNOVATION',
-                        style: GoogleFonts.sen(
-                          textStyle: TextStyle(
-                            fontWeight: FontWeight.w200,
-                            color: CustomColor.onDialog(),
-                            fontSize: 14,
-                            height: 1,
-                            letterSpacing: .25,
-                          ),
-                        ),
-                      ),
-                      Text(
-                        'AND EMBRACE GROWTH WITH BOLD',
-                        style: GoogleFonts.sen(
-                          textStyle: TextStyle(
-                            fontWeight: FontWeight.w200,
-                            color: CustomColor.onDialog(),
-                            fontSize: 14,
-                            height: 1,
-                            letterSpacing: .25,
-                          ),
-                        ),
-                      ),
-                      Text(
-                        'STRATEGIST',
-                        style: GoogleFonts.sen(
-                          textStyle: TextStyle(
-                            fontWeight: FontWeight.w200,
-                            color: CustomColor.onDialog(),
-                            fontSize: 14,
+                            fontSize: 12.sp,
                             height: 1,
                             letterSpacing: .25,
                           ),
@@ -100,6 +67,7 @@ class DeveloperCard extends StatelessWidget {
               ],
             ),
           ),
+          Align(alignment: Alignment.bottomLeft, child: DeveloperPicture()),
           CustomTextButton(
             alignment: Alignment.topRight,
             label: 'CONTACT ME',
@@ -128,7 +96,7 @@ class DeveloperPicture extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Image.asset('dev_clear.png', fit: BoxFit.fitWidth);
+    return Image.asset(height: 520, 'dev_clear.png', fit: BoxFit.fitHeight);
   }
 }
 
