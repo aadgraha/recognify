@@ -195,7 +195,7 @@ class ProjectTile extends StatelessWidget {
       children: List.generate(3, (index) {
         final items = [
           TileProps(
-            'voltunes-web.png',
+            'assets/voltunes-web.png',
             'Voltunes ERP',
             'ERP solution for integrated poultry management.Running a poultry farm requires precision, consistency, and control. Voltunes ERP is your all-in-one solution for modern poultry management—streamlining daily operations',
             Uri.parse(
@@ -203,13 +203,13 @@ class ProjectTile extends StatelessWidget {
             ),
           ),
           TileProps(
-            'voltunes-mobile.png',
+            'assets/voltunes-mobile.png',
             'Voltunes Mobile',
             'Voltunes mobile apps offers a modern solution for managing your farm—from recording daily weight and mortality, tracking stock usage and inventory, and logging harvests—all in one streamlined platform.',
             Uri.parse('https://voltunes.com/id/pages/product-detail-id.html'),
           ),
           TileProps(
-            'visit-flow.png',
+            'assets/visit-flow.png',
             'Visit Flow Mobile',
             'Visit Flow Mobile Apps is the Visiton app simplifies every step of your visit process—from planning and routing, to real-time check-ins, task execution, and post-visit reports.',
             Uri.parse('https://visitflow.flexurio.com/'),

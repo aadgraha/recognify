@@ -104,7 +104,7 @@ class DeveloperPicture extends StatelessWidget {
         topLeft: Radius.circular(16),
         bottomLeft: Radius.circular(16),
       ),
-      child: Image.asset('dev_clear.png', fit: BoxFit.cover),
+      child: Image.asset('assets/dev_clear.png', fit: BoxFit.cover),
     );
   }
 }
