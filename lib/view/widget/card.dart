@@ -12,7 +12,7 @@ class DeveloperCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: Device.screenType == ScreenType.desktop ? 520 : 320,
+      height: Device.screenType == ScreenType.mobile ? 320 : 520,
       width: double.maxFinite,
       child: Stack(
         fit: StackFit.expand,
@@ -22,52 +22,55 @@ class DeveloperCard extends StatelessWidget {
               color: const Color(0xFF212121),
               borderRadius: const BorderRadius.all(Radius.circular(16)),
             ),
-            height: Device.screenType == ScreenType.desktop ? 520 : 320,
+            height: Device.screenType == ScreenType.mobile ? 320 : 520,
             width: double.maxFinite,
-            child: Row(
+          ),
+          Align(
+            alignment:
+                Device.screenType == ScreenType.mobile
+                    ? Alignment.bottomLeft
+                    : Alignment.centerLeft,
+            child: DeveloperPicture(),
+          ),
+          Container(
+            padding: EdgeInsets.only(right: 10),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.end,
               children: [
-                Expanded(
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.end,
-                    children: [
-                      const Spacer(),
-                      Text(
-                        'SOFTWARE\nDEVELOPER',
-                        textAlign: TextAlign.end,
-                        style: GoogleFonts.sen(
-                          textStyle: TextStyle(
-                            letterSpacing: .25,
-                            height: 0.9,
-                            fontWeight: FontWeight.w200,
-                            color: CustomColor.onDialog(),
-                            fontSize: 25.sp,
-                          ),
-                        ),
-                      ),
-
-                      const Gap(40),
-                      Text(
-                        'DISCOVER THE POWER OF INNOVATION\nAND EMBRACE GROWTH WITH BOLD\nSTRATEGIST',
-                        textAlign: TextAlign.end,
-                        style: GoogleFonts.sen(
-                          textStyle: TextStyle(
-                            fontWeight: FontWeight.w200,
-                            color: CustomColor.onDialog(),
-                            fontSize: 12.sp,
-                            height: 1,
-                            letterSpacing: .25,
-                          ),
-                        ),
-                      ),
-                      const Spacer(),
-                    ],
+                const Spacer(),
+                Text(
+                  'SOFTWARE\nDEVELOPER',
+                  textAlign: TextAlign.end,
+                  style: GoogleFonts.sen(
+                    textStyle: TextStyle(
+                      letterSpacing: .25,
+                      height: 0.9,
+                      fontWeight: FontWeight.w200,
+                      color: CustomColor.onDialog(),
+                      fontSize: 25.sp,
+                    ),
                   ),
                 ),
-                Gap(15),
+
+                const Gap(40),
+                Text(
+                  'DISCOVER THE POWER OF INNOVATION\nAND EMBRACE GROWTH WITH BOLD\nSTRATEGIST',
+                  textAlign: TextAlign.end,
+                  style: GoogleFonts.sen(
+                    textStyle: TextStyle(
+                      fontWeight: FontWeight.w200,
+                      color: CustomColor.onDialog(),
+                      fontSize: 12.sp,
+                      height: 1,
+                      letterSpacing: .25,
+                    ),
+                  ),
+                ),
+                const Spacer(),
               ],
             ),
           ),
-          Align(alignment: Alignment.bottomLeft, child: DeveloperPicture()),
+
           CustomTextButton(
             alignment: Alignment.topRight,
             label: 'CONTACT ME',
@@ -96,7 +99,13 @@ class DeveloperPicture extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Image.asset(height: 520, 'dev_clear.png', fit: BoxFit.fitHeight);
+    return ClipRRect(
+      borderRadius: BorderRadius.only(
+        topLeft: Radius.circular(16),
+        bottomLeft: Radius.circular(16),
+      ),
+      child: Image.asset('dev_clear.png', fit: BoxFit.cover),
+    );
   }
 }
 

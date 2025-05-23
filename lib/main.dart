@@ -38,147 +38,142 @@ class _MainAppState extends State<MainApp> {
             ),
           ),
 
-          home: Scaffold(
-            backgroundColor: Colors.black,
-            body: SafeArea(
-              child: ListView(
-                children: [
-                  Gap(20),
-                  Padding(
-                    padding: EdgeInsets.symmetric(
-                      horizontal: CustomPadding.wide(),
-                    ),
-                    child: DeveloperCard(
-                      onMore: () {
-                        Scrollable.ensureVisible(
-                          _key1.currentContext!,
-                          duration: Duration(seconds: 1),
-                          curve: Curves.easeInOut,
-                        );
-                      },
-                    ),
-                  ),
-                  Gap(40),
-                  Padding(
-                    key: _key1,
-                    padding: EdgeInsets.symmetric(
-                      horizontal: CustomPadding.wide(),
-                    ),
-                    child: Text(
-                      'About Me',
-                      style: GoogleFonts.sen(
-                        textStyle: TextStyle(
-                          fontWeight: FontWeight.w200,
-                          color: CustomColor.onDialog(),
-                          fontSize: 25,
-                          height: 0.9,
-                          letterSpacing: .25,
-                        ),
+          home: SelectionArea(
+            child: Scaffold(
+              backgroundColor: Colors.black,
+              body: SafeArea(
+                child: ListView(
+                  children: [
+                    Gap(20),
+                    Padding(
+                      padding: EdgeInsets.symmetric(
+                        horizontal: CustomPadding.wide(),
+                      ),
+                      child: DeveloperCard(
+                        onMore: () {
+                          Scrollable.ensureVisible(
+                            _key1.currentContext!,
+                            duration: Duration(seconds: 1),
+                            curve: Curves.easeInOut,
+                          );
+                        },
                       ),
                     ),
-                  ),
-                  Gap(5),
-                  Padding(
-                    padding: EdgeInsets.symmetric(
-                      horizontal: CustomPadding.wide(),
-                    ),
-                    child: Divider(color: CustomColor.label()),
-                  ),
-                  Gap(40),
-                  Padding(
-                    padding: EdgeInsets.symmetric(
-                      horizontal: CustomPadding.wide(),
-                    ),
-                    child: RichText(
-                      textAlign: TextAlign.justify,
-                      text: TextSpan(
-                        children: [
-                          TextSpan(
-                            text:
-                                "${'"'}Hi I'm Yahya Adi, a software developer specializing in Flutter and Golang, with a strong background in building robust, scalable applications.\n\nI have hands-on experience leading ERP implementation for one of the largest poultry companies in Indonesia, where I contributed to optimizing business processes through technology.\n\nI pride myself on being a fast learner and highly adaptable to new programming languages, frameworks, and tools. Whether it's building cross-platform mobile apps or developing efficient backend systems, I bring a problem-solving mindset and a commitment to clean, maintainable code.${'"'}",
-                            style: GoogleFonts.merriweather(
-                              textStyle: TextStyle(
-                                fontWeight: FontWeight.w200,
-                                color: CustomColor.onDialog(),
-                                fontSize: 18,
-                                height: 1.5,
-                                wordSpacing: 5,
-                              ),
-                            ),
+                    Gap(40),
+                    Padding(
+                      key: _key1,
+                      padding: EdgeInsets.symmetric(
+                        horizontal: CustomPadding.wide(),
+                      ),
+                      child: Text(
+                        'About Me',
+                        style: GoogleFonts.sen(
+                          textStyle: TextStyle(
+                            fontWeight: FontWeight.w200,
+                            color: CustomColor.onDialog(),
+                            fontSize: 25,
+                            height: 0.9,
+                            letterSpacing: .25,
                           ),
-                        ],
-                      ),
-                    ),
-                  ),
-                  Gap(40),
-                  Padding(
-                    padding: EdgeInsets.symmetric(
-                      horizontal: CustomPadding.wide(),
-                    ),
-                    child: Text(
-                      'Work Projects',
-                      style: GoogleFonts.sen(
-                        textStyle: TextStyle(
-                          fontWeight: FontWeight.w200,
-                          color: CustomColor.onDialog(),
-                          fontSize: 25,
-                          height: 0.9,
-                          letterSpacing: .25,
                         ),
                       ),
                     ),
-                  ),
-                  Gap(5),
-                  Padding(
-                    padding: EdgeInsets.symmetric(
-                      horizontal: CustomPadding.wide(),
+                    Gap(5),
+                    Padding(
+                      padding: EdgeInsets.symmetric(
+                        horizontal: CustomPadding.wide(),
+                      ),
+                      child: Divider(color: CustomColor.label()),
                     ),
-                    child: Divider(color: CustomColor.label()),
-                  ),
-                  Gap(20),
-                  Padding(
-                    padding: EdgeInsets.symmetric(
-                      horizontal: CustomPadding.wide(),
-                    ),
-                    child: ProjectTile(),
-                  ),
-                  Gap(40),
-                  Padding(
-                    padding: EdgeInsets.symmetric(
-                      horizontal: CustomPadding.wide(),
-                    ),
-                    child: Text(
-                      'Contact Me',
-                      style: GoogleFonts.sen(
-                        textStyle: TextStyle(
-                          fontWeight: FontWeight.w200,
-                          color: CustomColor.onDialog(),
-                          fontSize: 25,
-                          height: 0.9,
-                          letterSpacing: .25,
+                    Gap(40),
+                    Padding(
+                      padding: EdgeInsets.symmetric(
+                        horizontal: CustomPadding.wide(),
+                      ),
+                      child: Text(
+                        "${'"'}Hi I'm Yahya Adi, a software developer specializing in Flutter and Golang, with a strong background in building robust, scalable applications.\n\nI have hands-on experience leading ERP implementation for one of the largest poultry companies in Indonesia, where I contributed to optimizing business processes through technology.\n\nI pride myself on being a fast learner and highly adaptable to new programming languages, frameworks, and tools. Whether it's building cross-platform mobile apps or developing efficient backend systems, I bring a problem-solving mindset and a commitment to clean, maintainable code.${'"'}",
+                        textAlign: TextAlign.justify,
+                        style: GoogleFonts.merriweather(
+                          textStyle: TextStyle(
+                            fontWeight: FontWeight.w200,
+                            color: CustomColor.onDialog(),
+                            fontSize: 18,
+                            height: 1.5,
+                            wordSpacing: 5,
+                          ),
                         ),
                       ),
                     ),
-                  ),
-                  Gap(5),
-                  Padding(
-                    padding: EdgeInsets.symmetric(
-                      horizontal: CustomPadding.wide(),
+                    Gap(40),
+                    Padding(
+                      padding: EdgeInsets.symmetric(
+                        horizontal: CustomPadding.wide(),
+                      ),
+                      child: Text(
+                        'Work Projects',
+                        style: GoogleFonts.sen(
+                          textStyle: TextStyle(
+                            fontWeight: FontWeight.w200,
+                            color: CustomColor.onDialog(),
+                            fontSize: 25,
+                            height: 0.9,
+                            letterSpacing: .25,
+                          ),
+                        ),
+                      ),
                     ),
-                    child: Divider(color: CustomColor.label()),
-                  ),
-                  Gap(20),
-                  Padding(
-                    padding: EdgeInsets.symmetric(
-                      horizontal: CustomPadding.wide(),
+                    Gap(5),
+                    Padding(
+                      padding: EdgeInsets.symmetric(
+                        horizontal: CustomPadding.wide(),
+                      ),
+                      child: Divider(color: CustomColor.label()),
                     ),
-                    child: Align(
-                      alignment: Alignment.centerLeft,
-                      child: ContactMe(isDialog: false),
+                    Gap(20),
+                    Padding(
+                      padding: EdgeInsets.symmetric(
+                        horizontal: CustomPadding.wide(),
+                      ),
+                      child: ProjectTile(),
                     ),
-                  ),
-                  Gap(40),
-                ],
+                    Gap(40),
+                    Padding(
+                      padding: EdgeInsets.symmetric(
+                        horizontal: CustomPadding.wide(),
+                      ),
+                      child: Text(
+                        'Contact Me',
+                        style: GoogleFonts.sen(
+                          textStyle: TextStyle(
+                            fontWeight: FontWeight.w200,
+                            color: CustomColor.onDialog(),
+                            fontSize: 25,
+                            height: 0.9,
+                            letterSpacing: .25,
+                          ),
+                        ),
+                      ),
+                    ),
+                    Gap(5),
+                    Padding(
+                      padding: EdgeInsets.symmetric(
+                        horizontal: CustomPadding.wide(),
+                      ),
+                      child: Divider(color: CustomColor.label()),
+                    ),
+                    Gap(20),
+                    Padding(
+                      padding: EdgeInsets.symmetric(
+                        horizontal: CustomPadding.wide(),
+                      ),
+                      child: Align(
+                        alignment: Alignment.centerLeft,
+                        child: ContactMe(isDialog: false),
+                      ),
+                    ),
+                    Gap(40),
+                  ],
+                ),
               ),
             ),
           ),

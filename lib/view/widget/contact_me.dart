@@ -35,7 +35,7 @@ class _ContactMeState extends State<ContactMe> {
 
       backgroundColor: Color(0xFF333333),
       content: SizedBox(
-        width: widget.isDialog ? null : MediaQuery.of(context).size.width,
+        width: widget.isDialog ? 400 : MediaQuery.of(context).size.width,
         child: Column(
           mainAxisSize: MainAxisSize.max,
           children: [
