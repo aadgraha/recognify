@@ -12,7 +12,7 @@ class DeveloperCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: Device.screenType == ScreenType.mobile ? 320 : 520,
+      height: Device.screenType == ScreenType.mobile ? 300 : 400,
       width: double.maxFinite,
       child: Stack(
         fit: StackFit.expand,
@@ -22,7 +22,7 @@ class DeveloperCard extends StatelessWidget {
               color: const Color(0xFF212121),
               borderRadius: const BorderRadius.all(Radius.circular(16)),
             ),
-            height: Device.screenType == ScreenType.mobile ? 320 : 520,
+            height: Device.screenType == ScreenType.mobile ? 300 : 400,
             width: double.maxFinite,
           ),
           Align(
