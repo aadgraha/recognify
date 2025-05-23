@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:recognify/util/color.dart';
 import 'package:recognify/view/widget/text_field.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class ContactMe extends StatefulWidget {
   const ContactMe({super.key, required this.isDialog});
@@ -47,7 +48,8 @@ class _ContactMeState extends State<ContactMe> {
               ),
               onChanged:
                   (value) => setState(() {
-                    _contactType = value!;
+                    if (value == null) return;
+                    _contactType = value;
                   }),
             ),
             RadioListTile<ContactType>(
@@ -59,7 +61,8 @@ class _ContactMeState extends State<ContactMe> {
               groupValue: _contactType,
               onChanged:
                   (value) => setState(() {
-                    _contactType = value!;
+                    if (value == null) return;
+                    _contactType = value;
                   }),
             ),
           ],
@@ -74,7 +77,37 @@ class _ContactMeState extends State<ContactMe> {
             child: Text('Cancel', style: TextStyle(color: CustomColor.label())),
           ),
         OutlinedButton(
-          onPressed: () {},
+          onPressed: () async {
+            if (_contactType == ContactType.email) {
+              final subject = Uri.encodeComponent(subjectController.text);
+              final message = Uri.encodeComponent(messageController.text);
+              final Uri uri = Uri.parse(
+                'mailto:adiyahya454@gmail.com?subject=$subject&body=$message',
+              );
+              if (await canLaunchUrl(uri)) {
+                await launchUrl(uri);
+              } else {
+                throw 'Could not launch $uri';
+              }
+            }
+            if (_contactType == ContactType.whatsapp) {
+              final phoneNumber = '+6281329615533';
+              final message =
+                  '${subjectController.text}\n\n${messageController.text}';
+              final Uri whatsappUri = Uri.parse(
+                'https://wa.me/$phoneNumber?text=${Uri.encodeComponent(message)}',
+              );
+
+              if (await canLaunchUrl(whatsappUri)) {
+                await launchUrl(
+                  whatsappUri,
+                  mode: LaunchMode.externalApplication,
+                );
+              } else {
+                throw 'Could not launch WhatsApp';
+              }
+            }
+          },
           child: Text('Send', style: TextStyle(color: CustomColor.onDialog())),
         ),
       ],
